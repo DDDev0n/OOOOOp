@@ -1,3 +1,4 @@
+
 from models import Computer, Processor, RAM, Motherboard
 from memento import Caretaker
 import openpyxl
@@ -32,34 +33,6 @@ def main():
 
     # История изменений
     caretaker.list_history()
-
-    # Диаграмма классов в текстовом формате
-    print("\n" + "=" * 50)
-    print("ДИАГРАММА КЛАССОВ")
-    print("=" * 50)
-    print("""
-    ┌─────────────────┐
-    │     Detail      │  (Абстрактный класс)
-    ├─────────────────┤
-    │ - name: str     │
-    │ - type: Enum    │
-    │ - specs: dict   │
-    └────────┬────────┘
-             │
-    ┌────────┴────────────────────────┐
-    │        Наследование             │
-    │                                 │
-    ▼                ▼                ▼
-┌──────────┐  ┌──────────┐  ┌───────────────┐
-│Processor │  │   RAM    │  │ Motherboard   │
-└──────────┘  └──────────┘  └───────────────┘
-
-    ┌─────────────────┐
-    │   Computer      │  (Композиция)
-    ├─────────────────┤
-    │ - components[]  │◄──── Detail[]
-    └─────────────────┘
-    """)
 
     # Экспорт в Excel
     print("\n--- Экспорт в Excel ---")
